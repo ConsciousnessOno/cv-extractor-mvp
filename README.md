@@ -24,15 +24,22 @@ uvicorn app.main:app --reload --port 8000
 ```
 
 Проверка:
-curl http://127.0.0.1:8000/health
+```bash
+curl http://127.0.0.1:8000/health 
+```
 
 Пример запроса: 
+```bash
 curl -X POST "http://127.0.0.1:8000/parse_resume" \
   -H "Content-Type: application/json" \
   -d '{
     "text": "Иван Иванов, ML Engineer. Email: ivan@example.com, телефон 8 999 123-45-67. Работал в Yandex с июня 2020 по март 2023. Занимался обучением различных моделей, а также оптимизацией бизнес задач. Мой стек: Python; FastAPI; ML; SQL; Проживаю в Москве, по образованию SoftWare Engineer, закончил МГУ в 2019 году, бакалавр. Языки: Русский C2, Английский B1",
     "lang": "ru"
   }' | jq
+```
 
 Тесты:
+```bash
 pytest -q
+```
+
