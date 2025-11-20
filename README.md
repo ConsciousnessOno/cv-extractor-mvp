@@ -9,6 +9,17 @@ Pet-проект: сервис на Python + FastAPI, который с помо
 - Идемпотентность по `hash(text)`, кэш и логи в SQLite (`runs`, `results`).
 - Метаданные: `request_id`, `model`, `tokens_in/out`, `latency_ms`, `status`.
 
+## Стек
+
+- Python 3.13
+- FastAPI
+- Pydantic v2
+- OpenAI GPT-4o mini (JSON-mode)
+- httpx
+- SQLite
+- Pytest
+- Docker / docker-compose
+
 ## Как запустить локально
 
 ```bash
@@ -43,3 +54,8 @@ curl -X POST "http://127.0.0.1:8000/parse_resume" \
 pytest -q
 ```
 
+## Ограничения
+
+- Обучения модели нет, используется внешняя LLM через API.
+- Golden-set для метрик небольшой (10 резюме, только RU/EN).
+- БД SQLite для простоты, без миграций и шардирования.
