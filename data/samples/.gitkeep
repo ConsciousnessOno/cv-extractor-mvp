@@ -1,0 +1,11 @@
+# tests/test_normalize.py
+
+from app.models import CVOut
+from app.normalize import normalize_cv
+
+
+def test_normalize_cv_noop_for_now():
+    original = CVOut(name="Test User", skills=["Python", "FastAPI"])
+    result = normalize_cv(original, raw_text="some text")
+    # На Спринте 0 нормализация ничего не меняет
+    assert result == original
